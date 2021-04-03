@@ -1,6 +1,7 @@
 package com.mingu.adminpage.controller;
 
 import com.mingu.adminpage.model.SearchParam;
+import com.mingu.adminpage.model.network.Header;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -31,5 +32,10 @@ public class GetController {
         System.out.println(searchParam.getPage());
 
         return searchParam; // { "account" : "", "email" : "", "page" : 0}
+    }
+
+    @GetMapping("/header")
+    public Header getHeader() {
+        return Header.builder().resultCode("OK").description("OK").build();
     }
 }
